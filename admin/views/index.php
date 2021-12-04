@@ -8,14 +8,19 @@
 	$db->connect();
 
 	/*Xử lý các request*/
-	
-		
-	if (isset($_GET['controller'])) {
-		$controller = $_GET['controller'];
-		echo("<script>console.log('PHP: " . ($_GET['controller']) . "');</script>");
-		require '../route/web.php';
+	if (!empty($_SESSION['useradmin']) && $_SESSION['useradmin']['role'] == admin) {
+		if (isset($_GET['controller'])) {
+			$controller = $_GET['controller'];
+			echo("<script>console.log('PHP: " . ($_GET['controller']) . "');</script>");
+			require('../views/layouts/header.php');
+			
+			require '../route/web.php';
+			require('../views/layouts/footer.php');
+		} else {
+			echo("<script>console.log('log in:  ');</script>");
+			require('../views/user/login.php');
+		}
 	} else {
-		echo("<script>console.log('àdasfasdfdsfasdfasdf:  ');</script>");
 		require('../views/user/login.php');
 	}
 	$db->closeDatabase();

@@ -9,7 +9,13 @@ class UserModel extends Database{
 		$this->db = new Database();
 		$this->db->connect();
 	}
-
+	public function login($username, $password)
+	{
+		$sql = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
+		$result = $this->db->conn->query($sql);
+		
+		return $result;
+	}
 	public function signup($username, $password, $fullName)
 	{	
 		$sql = "INSERT INTO users (username, password, full_name)
@@ -19,13 +25,6 @@ class UserModel extends Database{
 
 	public function checkExists($username) {
 		$sql = "SELECT * FROM users WHERE username = '$username'";
-		$result = $this->db->conn->query($sql);
-		
-		return $result;
-	}
-	public function login($username, $password)
-	{
-		$sql = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
 		$result = $this->db->conn->query($sql);
 		
 		return $result;
