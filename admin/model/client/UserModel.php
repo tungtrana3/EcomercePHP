@@ -3,7 +3,6 @@
 class UserModel extends Database{
 	protected $db;
 
-    // connect db
 	public function __construct()
 	{
 		$this->db = new Database();
@@ -19,13 +18,6 @@ class UserModel extends Database{
 
 	public function checkExists($username) {
 		$sql = "SELECT * FROM users WHERE username = '$username'";
-		$result = $this->db->conn->query($sql);
-		
-		return $result;
-	}
-	public function login($username, $password)
-	{
-		$sql = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
 		$result = $this->db->conn->query($sql);
 		
 		return $result;

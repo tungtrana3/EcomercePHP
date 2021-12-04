@@ -1,5 +1,8 @@
 
 <?php
+define('admin', 1); // quyền admin
+define('client', 0); // quyền người dùng thông thường
+// $document_root = $_SERVER['DOCUMENT_ROOT']+'/assignment/EcomercePHP/admin/';
 $dbConn = mysqli_connect('localhost', 'root', '', 'assigment');
 
 if (!$dbConn) {
