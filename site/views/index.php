@@ -1,5 +1,5 @@
 <?php
-	require('../views/layouts/header.php');
+	require('../views/layouts/headTag.php');
 
 	if (isset($_GET['controller'])) {
 		$controller = $_GET['controller'];
@@ -9,12 +9,13 @@
 
 	switch ($controller) {
 		case 'test':
-			echo "trang test";
+			// require('../views/home/home.php');
 			break;
 		
 		default:
+			require('../views/home/home.php');
 			// require('../views/home/home.php');
-			require('../views/products/detailProduct.php');
+			// require('../views/products/detailProduct.php');
 			break;
 	}
 

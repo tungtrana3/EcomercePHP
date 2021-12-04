@@ -4,7 +4,7 @@ class Database
 {
 	public $conn = NULL;
 	private $server = 'localhost';
-	private $dbName = 'blog';
+	private $dbName = 'assigment';
 	private $user = 'root';
 	private $password = '';
         
