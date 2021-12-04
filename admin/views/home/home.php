@@ -12,7 +12,7 @@
                                     <div class="card-body">Loại sản phẩm</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
                                     <!-- <a class="nav-link" href="?controller=productType"> -->
-                                        <a class="small text-white stretched-link"  href="?controller=productType">Chi Tiết </a>
+                                        <a class="small text-white stretched-link"  href="../../views/?controller=productType">Chi Tiết </a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
@@ -21,7 +21,7 @@
                                 <div class="card bg-warning text-white mb-4">
                                     <div class="card-body">Sản phầm</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link"  href="?controller=product">Chi Tiết </a>
+                                        <a class="small text-white stretched-link"  href="../../views/?controller=product">Chi Tiết </a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
@@ -30,7 +30,7 @@
                                 <div class="card bg-success text-white mb-4">
                                     <div class="card-body">Thành viên</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link"  href="?controller=user">Chi Tiết </a>
+                                        <a class="small text-white stretched-link"  href="../../views/?controller=user">Chi Tiết </a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
@@ -39,7 +39,7 @@
                                 <div class="card bg-danger text-white mb-4">
                                     <div class="card-body">Đơn hàng</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="?controller=order">Chi Tiết </a>
+                                        <a class="small text-white stretched-link" href="../../views/?controller=order">Chi Tiết </a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>

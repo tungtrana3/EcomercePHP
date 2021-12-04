@@ -1,6 +1,6 @@
 <?php
 
-class Home
+class ProductType
 {
     public function __construct()
     {
@@ -10,7 +10,8 @@ class Home
         */
         require('../model/client/UserModel.php');
         if (!empty($_SESSION['useradmin'])) {
-            header('Location: home/home.php');
+            
+            header('Location: product/productType.php');
         } else {
             $userModel = new UserModel();
             $error = $this->loginAdmin($userModel);

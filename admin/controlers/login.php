@@ -21,7 +21,6 @@ class Login
     public function loginAdmin($userModel)
     {
         $username = $password = $fullName = NULL;
-
         $error = array();
         $error['inputEmailAddress'] = $error['inputPassword'] = NULL;
         if (!empty($_POST['login_admin'])) {
@@ -45,19 +44,9 @@ class Login
             if ($username && $password) {
                 $result = $userModel->login($username, $password);
                 $check = $result->num_rows; /*đếm số dòng trong database*/
-        echo("<script>console.log('PHP: " .$check . "');</script>");
-
-            /**
-            * Nếu số dòng trong database > 0 => lưu session + lấy dữ liệu + chuyển hướng
-            * Ngược lại thông báo alert bằng script
-            */
                 if ($check > 0) {
                     $data = $result->fetch_array(); /*lấy dữ liệu tương ứng với username và password nhập*/
                     $_SESSION['useradmin'] = $data; /*lưu session*/
-                /**
-                * Nếu level = 1 thì chuyển hướng đến trang quản trị viên
-                * Ngược lại thì thông báo đăng nhập lại
-                */
                     if ($data['role'] == admin) {
                         header('Location: home/home.php');
                     } else {
@@ -68,7 +57,6 @@ class Login
                 }
             }
         }
-
         return $error;
     }
 }

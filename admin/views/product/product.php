@@ -1,31 +1,3 @@
-<?php
-	
-	session_start();
-	// If the user is not logged in redirect to the login page...
-	if(empty($_SESSION['email']))
-    {
-        header("Location: http://localhost/admin/login.php");
-        die("Redirecting to http://localhost/admin/login.php");
-    }
-	
-	$dbConn = mysqli_connect('localhost', 'root', '', 'assigment');
-
-	if (!$dbConn) {
-		error_log("Failed to connect to MySQL: " . dbConn_error($dbConn));
-		die('Internal server error');
-	}
-
-	$db_select = mysqli_select_db($dbConn,'assigment');
-	if (!$db_select) {
-		error_log("Database selection failed: " . dbConn_error($dbConn));
-		die('Internal server error');
-	}
-	$sql = 'SELECT * FROM products';
-	$retval  = mysqli_query( $dbConn, $sql );
-	if(! $retval  ) {
-      die('Could not get data: ' . mysqli_error());
-   }
-?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
