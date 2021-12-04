@@ -10,10 +10,12 @@ class Login
         */
         require('../model/client/UserModel.php');
         if (!empty($_SESSION['useradmin'])) {
+            echo("<script>console.log('log eqweqwefqwef:  ');</script>");
             header('Location: home/home.php');
         } else {
             $userModel = new UserModel();
-            $error = $this->loginAdmin($userModel);
+            echo("<script>console.log('log eqweqwefqwef:  ');</script>");
+            $this->loginAdmin($userModel);
             require('../views/user/login.php');
         }
     }
