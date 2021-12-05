@@ -1,6 +1,6 @@
 <?php
 
-class productType extends Database{
+class productTypeModel extends Database{
 	protected $db;
 
     // connect db
@@ -11,14 +11,24 @@ class productType extends Database{
 	}
 	public function getList($limit, $page)
 	{
-        $sql = "SELECT * FROM ProductType LIMIT '$limit' OFFSET '$page'";
+        $sql = "SELECT * FROM product_type ";
 		$result = $this->db->conn->query($sql);
 		return $result;
 	}
-	public function signup($username, $password, $fullName)
+	public function addCategory($name, $slug)
 	{	
-		$sql = "INSERT INTO users (username, password, full_name)
-							VALUES ('$username', '$password', '$fullName')";
+		$this->db->conn->real_escape_string($name);
+		$sql = "INSERT INTO product_type (name, slug)
+							VALUES ('$name', '$slug')";
 		$this->db->conn->query($sql);
+	}
+
+	public function getCategory($categoryId)
+	{
+		$sql = "SELECT * FROM categories WHERE id = $categoryId";
+		$result = $this->db->conn->query($sql);
+		$data = $result->fetch_array();
+
+		return $data;
 	}
 }

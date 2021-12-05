@@ -1,6 +1,6 @@
-       <?php require('../layouts/header.php'); ?>
-        <div id="layoutSidenav">
-        <?php require('../layouts/navigation.php'); ?>
+
+	 <div id="layoutSidenav">
+	 <?php require_once __DIR__ .'/../layouts/navigation.php'; ?>
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid">
@@ -25,23 +25,18 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-											<?php 
-												while($row = mysqli_fetch_array($retval)):
-											?>
-												<tr>
-													<td name="id"><?php echo $row["id_product"]; ?></td>
-													<td name="name"><?php echo $row["name_product"]; ?></td>
-													<td name="image_link"><?php echo $row["image_product"]; ?></td>
-													<td name="name"><?php echo $row["name_product"]; ?></td>
-													<td style="width:20%;" name="info"><?php echo $row["info_product"]; ?></td>
-													<td name="image">
-													
-													<img src="img/<?php echo $row["image_product"];?>" class="img-thumbnail">
-													
+										<?php
+                                            $stt = 0;
+                                            foreach ($productTypes as $row) {?>
+                                                <tr>
+													<td name="id"><?php echo $row["id"]; ?></td>
+													<td name="name"><?php echo $row["typeName"]; ?></td>
+													<!-- <td name="image_link"><?php echo $row["image_product"]; ?></td> -->
+													<!-- <td style="width:20%;" name="info"><?php echo $row["info_product"]; ?></td> -->
 													</td>
 												</tr>
-							
-											<?php endwhile; include('insertimg.php');?>
+                                            <?php }
+                                        ?>
 										</tbody>
                                     </table>
                                 </div>
@@ -66,7 +61,9 @@
 							</tr>
 							<tr>
 							
-								<td colspan="2"><div style="width:50%;margin:0 auto;text-align:center;padding: 5%;"><input type="submit" name="submitinset2" value="Submit" onClick="return confirm_insert()"></div></td>
+								<td colspan="2"><div style="width:50%;margin:0 auto;text-align:center;padding: 5%;">
+                                <input type="submit" name="addProduct" value="Submit">
+                            </div></td>
 							
 							</tr>
 						</table>
@@ -83,4 +80,3 @@
 				}
 			}
 		</script>
-        <?php require('../layouts/footer.php'); ?>
