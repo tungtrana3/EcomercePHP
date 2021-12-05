@@ -11,17 +11,20 @@
                             <div class="card-header">
                                 <i class="fas fa-table mr-1"></i>
                                 Loại sản phẩm
-								<input style="margin-left: 15%;" type="button" value="New Product / None" name="insertnew" onclick="insertvalue()">
+								<input style="margin-left: 15%;" type="button" value="Thêm sản phẩm" name="insertnew" onclick="insertvalue()">
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
 									<table class="table table-bordered tbdb" id="dataTable" width="100%" cellspacing="0">
                                         <thead>
                                             <tr>
-												<th>ID</th>
+												<th hidden="true">ID</th>
                                                 <th>Tên loại</th>
                                                 <th>Hình ảnh</th>
                                                 <th>Mô tả</th>
+												<th>Tình trạng</th>
+												<th></th>
+												<th></th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -29,10 +32,13 @@
                                             $stt = 0;
                                             foreach ($productTypes as $row) {?>
                                                 <tr>
-													<td name="id"><?php echo $row["id"]; ?></td>
+													<td name="id" hidden="true"><?php echo $row["id"]; ?></td>
 													<td name="name"><?php echo $row["typeName"]; ?></td>
-													<!-- <td name="image_link"><?php echo $row["image_product"]; ?></td> -->
-													<!-- <td style="width:20%;" name="info"><?php echo $row["info_product"]; ?></td> -->
+													<td name="name"><?php echo $row["img"]; ?></td>
+													<td name="name"><?php echo $row["infor"]; ?></td>
+													<td name="name"><?php echo $row["status"]; ?></td>
+													<td name="name"><?php echo $row["status"]; ?></td>
+													<td name="name"><?php echo $row["status"]; ?></td>
 													</td>
 												</tr>
                                             <?php }
@@ -44,7 +50,7 @@
                         </div>
                     </div>
 					
-					<form method="POST" id="forminsert" enctype="multipart/form-data">
+					<form method="post" id="forminsert" enctype="multipart/form-data">
 						<h3>Insert New</h3>
 						<table>
 							<tr>

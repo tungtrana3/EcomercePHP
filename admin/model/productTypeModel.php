@@ -15,15 +15,16 @@ class productTypeModel extends Database{
 		$result = $this->db->conn->query($sql);
 		return $result;
 	}
-	public function addCategory($name, $slug)
+	public function addType($name, $img, $info)
 	{	
 		$this->db->conn->real_escape_string($name);
-		$sql = "INSERT INTO product_type (name, slug)
-							VALUES ('$name', '$slug')";
+		$sql = "NSERT INTO `product_type` 
+		(`id`, `typeName`, `createAt`, `deleteAt`, `status`, `infor`, `img`)
+		 VALUES (current_timestamp(), '$name', current_timestamp(), NULL, '1', '$info','$img')";
 		$this->db->conn->query($sql);
 	}
 
-	public function getCategory($categoryId)
+	public function getType($categoryId)
 	{
 		$sql = "SELECT * FROM categories WHERE id = $categoryId";
 		$result = $this->db->conn->query($sql);

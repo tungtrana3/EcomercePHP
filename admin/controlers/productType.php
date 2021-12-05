@@ -6,11 +6,22 @@ class ProductType
     {
         require('../model/productTypeModel.php');
         $productTypes = array();
-        $productType = new productTypeModel();
-        echo("<script>console.log('log 1231231231132:  ');</script>");
+        $productType = new productTypeModel(); 
          $productTypes = $productType->getList(20, 1);
-         require('../views/product/productType.php');
-        //  header('Location: product/productType.php');
+        
+
+         if (isset($_POST['addProduct'])) {
+			$name = $_POST['name'];
+			$img = $_POST['img'];
+			$infor = $_POST['info'];
+
+			if ($name) {
+				$productType->addType($name, $img, $infor);
+				$alert['success'] = 'Thêm thành công';
+			}
+		}
+        require('../views/product/productType.php');
+        
     }
    public function getList($limit, $page)
     {
@@ -28,4 +39,23 @@ class ProductType
         }
         return $error;
     }
+    public function addType($name, $img, $infor)
+    {
+	// 	//làm sạch thông tin, xóa bỏ các tag html, ký tự đặc biệt 
+	// 	// sql injection
+		$infor = strip_tags($infor);
+		$infor = addslashes($infor);
+		$name = strip_tags($name);
+		$name = addslashes($name);
+        $img = strip_tags($img);
+		$img = addslashes($img);
+            if ($infor && $name) {
+                $productType = new productType();
+                $result = $productType->addType($name, $img, $infor);
+                $check = $result->num_rows; /*đếm số dòng trong database*/
+               return $result;
+        }
+        return $error;
+    }
+  
 }
