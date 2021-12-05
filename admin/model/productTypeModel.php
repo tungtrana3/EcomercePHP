@@ -17,11 +17,12 @@ class productTypeModel extends Database{
 	}
 	public function addType($name, $img, $info)
 	{	
-		$this->db->conn->real_escape_string($name);
-		$sql = "NSERT INTO `product_type` 
+        echo("<script>console.log('PHP1: addType " . $name . "');</script>");
+		$sql = "INSERT INTO product_type
 		(`id`, `typeName`, `createAt`, `deleteAt`, `status`, `infor`, `img`)
 		 VALUES (current_timestamp(), '$name', current_timestamp(), NULL, '1', '$info','$img')";
-		$this->db->conn->query($sql);
+		 $result = $this->db->conn->query($sql);
+		return $result;
 	}
 
 	public function getType($categoryId)

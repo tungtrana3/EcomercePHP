@@ -11,14 +11,15 @@ class ProductType
         
 
          if (isset($_POST['addProduct'])) {
+
 			$name = $_POST['name'];
 			$img = $_POST['img'];
 			$infor = $_POST['info'];
-
-			if ($name) {
-				$productType->addType($name, $img, $infor);
+            echo("<script>console.log('PHP: " . $name . "');</script>");
+            echo("<script>console.log('PHP: " . $img . "');</script>");
+            echo("<script>console.log('PHP: " . $infor . "');</script>");
+				$this->addType($name, $img, $infor);
 				$alert['success'] = 'Thêm thành công';
-			}
 		}
         require('../views/product/productType.php');
         
@@ -49,13 +50,16 @@ class ProductType
 		$name = addslashes($name);
         $img = strip_tags($img);
 		$img = addslashes($img);
+        echo("<script>console.log('PHP: 1" . $name . "');</script>");
+        echo("<script>console.log('PHP: 1" . $img . "');</script>");
+        echo("<script>console.log('PHP1: " . $infor . "');</script>");
             if ($infor && $name) {
-                $productType = new productType();
+                $productType = new productTypeModel();
                 $result = $productType->addType($name, $img, $infor);
+        echo("<script>console.log('PHP1: result " . $result . "');</script>");
                 $check = $result->num_rows; /*đếm số dòng trong database*/
                return $result;
         }
-        return $error;
     }
   
 }
